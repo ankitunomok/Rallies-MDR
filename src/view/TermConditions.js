@@ -1,20 +1,11 @@
 import React from 'react'
+import Footer from './Footer'
+import Header from './Header'
 
 export default function TermConditions() {
   return (
     <div>
-      <header className="customeheader">
-        <div className="container">
-          <div className="row">
-            <div className="logoSection">
-              <img src={require("../images/tata-logo.png")} className="img-fluid companylogo" alt="" />
-              <img src={require("../images/dhaanya-logo.png")} className="img-fluid dhaanyalogo" alt="" />
-            </div>
-
-          </div>
-        </div>
-        <div className="headerRight"></div>
-      </header>
+      <Header />
       <div className="main">
         {/* <div className="container-fluid header full-screen-wrap">
           {/* <!-- <div className="row p-2">
@@ -229,22 +220,7 @@ export default function TermConditions() {
           </div>
         </div>
       </div>
-      <footer>
-        <div className="footerlogo">
-          <img src={require("../images/footer-loogo.png")} className="img-fluid" alt="" />
-        </div>
-
-        <div className="footerright">
-
-          <p>
-            <a href="#"> <img src={require("../images/phone.png")} className="img-fluid " alt="" /> 8108622210 </a> | <a href="#">cmc@rallis.com </a>
-          </p>
-          <p>
-            Monday to Friday- 9.30am to 5.30pm
-          </p>
-
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
