@@ -6,6 +6,7 @@ import Placeholder from "./view/Placeholder";
 import PlaceholderIVR from "./view/PlaceholderIVR";
 import Register from "./view/Register";
 import TermConditions from "./view/TermConditions";
+import VerifyOtp from "./view/VerifyCode";
 
 export const AppRoutes = () =>
   useRoutes([
@@ -20,7 +21,7 @@ export const AppRoutes = () =>
         { path: "termcondition", element: <TermConditions /> },
         { path: "placeholder", element: <Placeholder /> },
         { path: "placeholderivr", element: <PlaceholderIVR /> },
-        
+        { path: "registerotp", element: <VerifyOtp /> }
       ],
     },
     { path: "*", element: <Navigate to="/" replace /> },

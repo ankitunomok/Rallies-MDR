@@ -22,8 +22,6 @@ export default function Mobile() {
             return;
         }
 
-        localStorage.setItem("loginMob", mobile);
-        localStorage.setItem("farmerLanguage", language);
         const data = {
             phoneNumber: `+91${mobile}`,
             role: "MDR",
@@ -47,6 +45,8 @@ export default function Mobile() {
             alert(result.data.message);
             navigate("/mobile");
         } else {
+            localStorage.setItem("loginMob", mobile);
+            localStorage.setItem("farmerLanguage", language);
             navigate("/otp");
         }
     }

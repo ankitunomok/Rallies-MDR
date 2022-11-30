@@ -16,9 +16,15 @@ export default function Otp() {
   let mobile = localStorage.getItem("loginMob");
   const mobileValidation = /^[0]?[6789]\d{9}$/;
   let farmerlanguage = localStorage.getItem("farmerLanguage");
-  
+
   useEffect(() => {
-    i18n.changeLanguage(farmerlanguage);
+    if (!mobile) {
+      alert("Please login first to use this service");
+      navigate("/");
+      return;
+    } else {
+      i18n.changeLanguage(farmerlanguage);
+    }
     // eslint-disable-next-line
   }, []);
 

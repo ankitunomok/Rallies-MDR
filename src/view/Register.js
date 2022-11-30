@@ -32,7 +32,13 @@ export default function Register() {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    i18n.changeLanguage(farmerlanguage);
+    if (!mobile) {
+      alert("Please login first to use this service");
+      navigate("/");
+      return;
+    } else {
+      i18n.changeLanguage(farmerlanguage);
+    }
     // eslint-disable-next-line
   }, []);
 
@@ -139,6 +145,7 @@ export default function Register() {
         alert(result.data.message);
         navigate("/register");
       } else {
+        localStorage.setItem("registerMobile", farmerMobile);
         const data = {
           phoneNumber: `+91${farmerMobile}`,
           role: "MDR",
@@ -161,11 +168,10 @@ export default function Register() {
         if (result.data.code === 0) {
           alert(result.data.message);
           navigate("/register");
-        } else {
-          navigate("/placeholder");
+          return;
         }
         alert(result.data.message);
-        navigate("/otp");
+        navigate("/registerotp");
       }
     } else {
       const data = {

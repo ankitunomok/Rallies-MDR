@@ -12,9 +12,16 @@ export default function Home() {
 
   // console.log(data)
   let farmerlanguage = localStorage.getItem("farmerLanguage");
+  let mobile = localStorage.getItem("loginMob");
 
   useEffect(() => {
-    i18n.changeLanguage(farmerlanguage);
+    if (!mobile) {
+      alert("Please login first to use this service");
+      navigate("/");
+      return;
+    } else {
+      i18n.changeLanguage(farmerlanguage);
+    }
     // eslint-disable-next-line
   }, []);
   return (
