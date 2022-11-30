@@ -51,6 +51,7 @@ export default function Otp() {
       return;
     } else {
       localStorage.setItem("homeData", JSON.stringify(result.data.result));
+      navigate('/home');
     }
   };
 
