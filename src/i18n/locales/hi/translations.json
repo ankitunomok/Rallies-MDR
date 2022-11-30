@@ -1,0 +1,56 @@
+{
+    "welcome_to_dhaanya_farmer_campaign": "धान्या किसान कैंपेन में स्वागत है",
+    "register_farmer": "किसान रजिस्टर करें",
+    "overall_target": "कुल लक्ष्य",
+    "overall_achieved": "कुल मिलाकर हासिल किया गया",
+    "day_target": "दिन का लक्ष्य",
+    "day_achieved": "दिन का हासिल किया",
+    
+    "login":"लॉग इन करें",
+    "mobile_no":"मोबाइल नंबर *",
+    "get_otp":"OTP प्राप्त करें",
+
+    "submit":"सबमिट",
+    "didnot_recieve_otp":"OTP प्राप्त नहीं हुआ?",
+    "resend_otp":"पुन: भेजें",
+    "otp":"OTP",
+    "validation":"OTP सत्यापन",
+
+    "home_page":"होम पेज",
+    "farmer_registered_successful":"किसान सफलतापूर्वक पंजीकृत हो गया है",
+
+    "ivr_call_sent_to_farmer_mobile_number":"किसान के मोबाइल पर IVR भेजा गया",
+
+    "farmer_name":"किसान का नाम *",
+    "invalid_nickname":"अमान्य नाम",
+    "mobile_number":"मोबाइल नंबर *",
+    "village":"गांव *",
+    "pincode":"पिन कोड",
+    "preferred_retailer":"पसंदीदा खुदरा विक्रेता",
+    "land_owned_in_acre":"भूमि एकड़ में",
+    "1_to_10":"1 से 10",
+    "more_than_10":"10 से अधिक",
+    "which_crop_he_grows":"वह कौन सी फसल उगाता है",
+
+    "millet":"बाजरा",
+    "how_much_Area_he_cultivate_the_selected_crop_in_acre":"चयनित फसल को वह कितने क्षेत्रफल में जोतता है एकड़ में",
+
+    "which_company_seeds_he_generally_buy":"वह आमतौर पर किस कंपनी का बीज खरीदते हैं",
+    "use_dhaanya_seed":"धान्य बीज का इस्तेमाल किया ?",
+    "yes":"हाँ",
+    "no":"नहीं",
+
+    "which_company_hybrid_used":"किस कंपनी/हाइब्रिड का इस्तेमाल किया",
+    "retailer_edge_code":"रिटेलर एज कोड",
+
+    "validation_route":"सत्यापन मार्ग ",
+    "registration_code":"पंजीकरण कोड",
+    "ivr":"आईवीआर",
+
+    "i_agree_to":"मैं योजना की",
+    "term_condition":"नियमों और शर्तों",
+    "of_the_scheme":"से सहमत हूँ।",
+
+    "registration":"पंजीकरण करे"
+
+}

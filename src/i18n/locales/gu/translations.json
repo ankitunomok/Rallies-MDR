@@ -1,0 +1,56 @@
+{
+    "welcome_to_dhaanya_farmer_campaign": "ધાન્ય ખેડૂત અભિયાનમાં આપનું સ્વાગત છે",
+    "register_farmer": "ખેડૂતની નોંધણી કરો",
+    "overall_target": "એકંદરે લક્ષ્ય",
+    "overall_achieved": "એકંદરે હાંસલ",
+    "day_target": "દિવસનું લક્ષ્ય",
+    "day_achieved": "દિવસ હાંસલ",
+    
+    "login":"પ્રવેશ કરો",
+    "mobile_no":"મોબાઈલ નમ્બર *",
+    "get_otp":"OTP મેળવો",
+
+    "submit":"સબમિટ કરો",
+    "didnot_recieve_otp":"OTP પ્રાપ્ત થયો નથી?",
+    "resend_otp":"OTP ફરી મોકલો",
+    "otp":"OTP",
+    "validation":"માન્યતા",
+
+    "home_page":"હોમ પેજ",
+    "farmer_registered_successful":"ખેડૂતે સફળતાપૂર્વક નોંધણી કરાવી",
+
+    "ivr_call_sent_to_farmer_mobile_number":"ખેડૂતના મોબાઈલ નંબર પર IVR કોલ મોકલવામાં આવ્યો હતો",
+
+    "farmer_name":"ખેડૂતનું નામ  *",
+    "invalid_nickname":"અમાન્ય નામ",
+    "mobile_number":"મોબાઇલ નંબર *",
+    "village":"ગામ *",
+    "pincode":"પીન કોડ",
+    "preferred_retailer":"પ્રિફર્ડ રિટેલર",
+    "land_owned_in_acre":"માલિકીની જમીન એકરમાં",
+    "1_to_10":"1 થી 10",
+    "more_than_10":"10 થી વધુ",
+    "which_crop_he_grows":"તે કયો પાક ઉગાડે છે",
+
+    "millet":"બાજરી",
+    "how_much_Area_he_cultivate_the_selected_crop_in_acre":"તે પસંદ કરેલ પાકની ખેતી કેટલા વિસ્તારમાં કરે છે એકરમાં",
+
+    "which_company_seeds_he_generally_buy":"તે સામાન્ય રીતે કઈ કંપનીના બીજ ખરીદે છે",
+    "use_dhaanya_seed":"DHAANYA બીજનો ઉપયોગ કરો?",
+    "yes":"હા",
+    "no":"નથી",
+
+    "which_company_hybrid_used":"કઈ કંપની/સંકર વપરાય છે",
+    "retailer_edge_code":"રિટેલર એજ કોડ",
+
+    "validation_route":"માન્યતા માર્ગ",
+    "registration_code":"નોંધણી નંબર",
+    "ivr":"IVR",
+
+    "i_agree_to":"હું આ યોજનાના",
+    "term_condition":"નિયમો અને શરતો",
+    "of_the_scheme":"સાથે સંમત છું",
+
+    "registration":"નોંધણી"
+
+}

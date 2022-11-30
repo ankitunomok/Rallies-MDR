@@ -1,5 +1,7 @@
 import axios from 'axios';
+// import { changeLanguage } from 'i18next';
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { asyncWrap } from '../asyncWrap';
 import Footer from './Footer'
@@ -8,6 +10,8 @@ import Header from './Header'
 export default function Mobile() {
 
     const [mobile, setMobile] = useState("");
+    const [language, setLanguage] = useState("en");
+    const { t, i18n } = useTranslation();
 
     const navigate = useNavigate();
     const mobileValidation = /^[0]?[6789]\d{9}$/;
@@ -19,6 +23,7 @@ export default function Mobile() {
         }
 
         localStorage.setItem("loginMob", mobile);
+        localStorage.setItem("farmerLanguage", language);
         const data = {
             phoneNumber: `+91${mobile}`,
             role: "MDR",
@@ -46,6 +51,11 @@ export default function Mobile() {
         }
     }
 
+    const handleLanguage = (e) => {
+        i18n.changeLanguage(e.target.value);
+        setLanguage(e.target.value);
+    }
+
     return (
         <div>
             <Header />
@@ -55,11 +65,11 @@ export default function Mobile() {
                         <div className="container-fluid header">
                             <div className="col-6 logoSection">
                                 <div className="languagedrop">
-                                    <select className="form-controlNew" name="language">
-                                        <option value>English</option>
-                                        <option value>Hindi</option>
-                                        <option value>Marathi</option>
-                                        <option value>Gujarati</option>
+                                    <select value={language} onChange={(e) => handleLanguage(e)} className="form-controlNew" name="language">
+                                        <option value="en">English</option>
+                                        <option value="hi">Hindi</option>
+                                        <option value="mr">Marathi</option>
+                                        <option value="gu">Gujarati</option>
                                     </select>
                                 </div>
 
@@ -72,7 +82,7 @@ export default function Mobile() {
                             <h1 className="logo-tagline">
                                 <br />
                                 <div className="welcomeTxt"> </div>
-                                <span className="b-text">Login
+                                <span className="b-text">{t('login')}
                                     <br />
                                     <br /></span></h1>
                         </div>
@@ -87,7 +97,7 @@ export default function Mobile() {
 
                                             <div className="form">
                                                 <div className="form-group">
-                                                    <label className="input-label">Mobile No *</label>
+                                                    <label className="input-label">{t('mobile_no')}</label>
                                                     <div className="input-group">
                                                         <input
                                                             type="tel"
@@ -108,7 +118,7 @@ export default function Mobile() {
                                                             <button onClick={(e) => {
                                                                 e.preventDefault();
                                                                 SendOtp();
-                                                            }} className="btn primary-btn">Get OTP</button>
+                                                            }} className="btn primary-btn">{t('get_otp')}</button>
                                                         </div>
                                                     </div>
                                                 </div>

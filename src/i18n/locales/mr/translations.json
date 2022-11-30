@@ -1,0 +1,56 @@
+{
+    "welcome_to_dhaanya_farmer_campaign": "धान्या शेतकरी मोहीम आपले स्वागत आहे",
+    "register_farmer": "शेतकरी नोंदणी करा",
+    "overall_target": "एकूणच लक्ष्य",
+    "overall_achieved": "एकूणच साध्य",
+    "day_target": "दिवसाचे लक्ष्य",
+    "day_achieved": "दिवस साधला",
+    
+    "login":"लॉग इन करा",
+    "mobile_no":"मोबाइल नंबर *",
+    "get_otp":"OTP प्राप्त करा",
+
+    "submit":"प्रस्तुत करणे",
+    "didnot_recieve_otp":"OTP मिळाला नाही?",
+    "resend_otp":"पुन्हा पाठवा",
+    "otp":"OTP",
+    "validation":"OTP प्रमाणीकरण",
+
+    "home_page":"मुखपृष्ठ",
+    "farmer_registered_successful":"शेतकऱ्याने यशस्वीपणे नोंदणी केली",
+
+    "ivr_call_sent_to_farmer_mobile_number":"शेतकऱ्याच्या मोबाईल नंबरवर IVR कॉल पाठवला",
+
+    "farmer_name":"शेतकऱ्याचे नाव *",
+    "invalid_nickname":"अवैध नाव",
+    "mobile_number":"मोबाइल नंबर * ",
+    "village":"गांव *",
+    "pincode":"पिन कोड",
+    "preferred_retailer":"पसंतीचा किरकोळ विक्रेता",
+    "land_owned_in_acre":"जमीन एकर मध्ये",
+    "1_to_10":"1 ते 10",
+    "more_than_10":"10 पेक्षा जास्त",
+    "which_crop_he_grows":"तो कोणते पीक घेतो",
+
+    "millet":"बाजरी",
+    "how_much_Area_he_cultivate_the_selected_crop_in_acre":"निवडलेल्या पिकाची लागवड तो किती क्षेत्रफळात करतो एकर मध्ये",
+
+    "which_company_seeds_he_generally_buy":"तो साधारणपणे कोणत्या कंपनीचे बियाणे खरेदी करतो",
+    "use_dhaanya_seed":"धान्य बियाणे वापरले ?",
+    "yes":"होय",
+    "no":"नाही",
+
+    "which_company_hybrid_used":"कोणती कंपनी/हायब्रीड वापरले",
+    "retailer_edge_code":"किरकोळ विक्रेता Edge कोड",
+
+    "validation_route":"सत्यापन मार्ग",
+    "registration_code":"नोंदणी कोड",
+    "ivr":"आईवीआर",
+
+    "i_agree_to":"मी योजनेच्या ",
+    "term_condition":"नियम आणि अटी",
+    "of_the_scheme":"सहमत आहे । ",
+
+    "registration":"नोंदणी करा"
+
+}

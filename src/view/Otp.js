@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+// import { t } from 'i18next';
+import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { asyncWrap } from '../asyncWrap';
 import Footer from './Footer'
@@ -8,10 +10,17 @@ import Header from './Header'
 
 export default function Otp() {
 
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
   let mobile = localStorage.getItem("loginMob");
   const mobileValidation = /^[0]?[6789]\d{9}$/;
+  let farmerlanguage = localStorage.getItem("farmerLanguage");
+  
+  useEffect(() => {
+    i18n.changeLanguage(farmerlanguage);
+    // eslint-disable-next-line
+  }, []);
 
   const VerifyOtp = async () => {
     const data = {
@@ -36,10 +45,7 @@ export default function Otp() {
       alert(result.data.message);
       return;
     } else {
-      // setData(result.data.result);
       localStorage.setItem("homeData", JSON.stringify(result.data.result));
-      // setShowHome(true);
-      // navigate("/home");
     }
   };
 
@@ -75,6 +81,8 @@ export default function Otp() {
     }
   }
 
+
+
   return (
     <>
       <div>
@@ -96,7 +104,7 @@ export default function Otp() {
               <div className="block register-content otp-form">
                 <div className="container">
                   <div className="tagline">
-                    <h1 className="logo-tagline"> <br /> <div className="welcomeTxt"> </div> <span className="b-text">Validation<br />
+                    <h1 className="logo-tagline"> <br /> <div className="welcomeTxt"> </div> <span className="b-text">{t('validation')}<br />
                     </span></h1>
                   </div>
                   <div className="mobilePageContainer">
@@ -107,18 +115,18 @@ export default function Otp() {
 
                             <div className="form">
                               <div className="form-group">
-                                <label className="input-label">OTP</label>
+                                <label className="input-label">{t('otp')}</label>
                                 <div className="input-group">
                                   <input type="tel" className="form-control" placeholder="------" value={otp} onChange={(e) => setOtp(e.target.value)} />
                                 </div>
                               </div>
 
-                              <div className="resend-otp"> <span className="resend-otp-label"><span>Didn’t recieve OTP?</span>
+                              <div className="resend-otp"> <span className="resend-otp-label"><span>{t('didnot_recieve_otp')}</span>
                                 {/* eslint-disable-next-line */}
                                 <a onClick={(e) => {
                                   e.preventDefault();
                                   ReSendOtp();
-                                }} href="#" className="resend-link">RESEND OTP</a></span> </div>
+                                }} href="#" className="resend-link">{t('resend_otp')}</a></span> </div>
                             </div>
                             <div className="button-bar full-btn">
                               <div className="button-bar-outer">
@@ -126,7 +134,7 @@ export default function Otp() {
                                   <button onClick={(e) => {
                                     e.preventDefault();
                                     VerifyOtp();
-                                  }} className="btn primary-btn">Submit</button>
+                                  }} className="btn primary-btn">{t('submit')}</button>
                                 </div>
                               </div>
                             </div>

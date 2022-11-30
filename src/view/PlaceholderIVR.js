@@ -1,10 +1,21 @@
-import React from 'react'
+// import { t } from 'i18next';
+import React, { useEffect } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom'
 import Footer from './Footer'
 import Header from './Header'
 
 export default function PlaceholderIVR() {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+
+  let farmerlanguage = localStorage.getItem("farmerLanguage");
+
+  useEffect(() => {
+    i18n.changeLanguage(farmerlanguage);
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div>
       <Header />
@@ -21,7 +32,7 @@ export default function PlaceholderIVR() {
               <div className="card">
 
                 <div className="card-body">
-                  <h2> IVR call sent to Farmer's Mobile Number </h2>
+                  <h2>{t('ivr_call_sent_to_farmer_mobile_number')} </h2>
                 </div>
               </div>
             </div>
@@ -34,7 +45,7 @@ export default function PlaceholderIVR() {
             <button onClick={(e) => {
               e.preventDefault()
               navigate('/home')
-            }} className="button">Home Page </button>
+            }} className="button">{t('home_page')} </button>
           </div>
         </div>
       </div>

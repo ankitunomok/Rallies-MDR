@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer'
 import Header from './Header'
 
 export default function Placeholder() {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+
+  let farmerlanguage = localStorage.getItem("farmerLanguage");
+
+  useEffect(() => {
+    i18n.changeLanguage(farmerlanguage);
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div>
       <Header />
@@ -21,7 +31,7 @@ export default function Placeholder() {
               <div className="d-flex justify-content-center mb-4">
                 <div className="card">
                   <div className="card-body">
-                    <h2>Farmer Registered Successfully</h2>
+                    <h2>{t('farmer_registered_successful')}</h2>
                   </div>
                 </div>
               </div>
@@ -34,7 +44,7 @@ export default function Placeholder() {
               <button onClick={(e) => {
                 e.preventDefault()
                 navigate('/home')
-              }} className="button">Home Page</button>
+              }} className="button">{t('home_page')}</button>
             </div>
           </div>
         </div>

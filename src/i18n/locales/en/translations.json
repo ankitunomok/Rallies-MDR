@@ -1,0 +1,56 @@
+{
+    "welcome_to_dhaanya_farmer_campaign": "Welcome to Dhaanya Farmer Campaign",
+    "register_farmer": "Register Farmer",
+    "overall_target": "Overall Target",
+    "overall_achieved": "Overall Achieved",
+    "day_target": "Day Target",
+    "day_achieved": "Day Achieved",
+    
+    "login":"Login",
+    "mobile_no":"Mobile No *",
+    "get_otp":"Get OTP",
+
+    "submit":"Submit",
+    "didnot_recieve_otp":"Didn't recieve OTP?",
+    "resend_otp":"RESEND OTP",
+    "otp":"OTP",
+    "validation":"Validation",
+
+    "home_page":"Home Page",
+    "farmer_registered_successful":"Farmer Registered Successfully",
+
+    "ivr_call_sent_to_farmer_mobile_number":"IVR call sent to Farmer's Mobile Number",
+
+    "farmer_name":"Farmer Name *",
+    "invalid_nickname":"Invalid nickname",
+    "mobile_number":"Mobile Number *",
+    "village":"Village*",
+    "pincode":"Pincode",
+    "preferred_retailer":"Preferred Retailer",
+    "land_owned_in_acre":"Land Owned in Acre",
+    "1_to_10":"1 to 10",
+    "more_than_10":"More than 10",
+    "which_crop_he_grows":"Which crop he grows",
+
+    "millet":"Millet",
+    "how_much_Area_he_cultivate_the_selected_crop_in_acre":"How much Area he cultivate the selected crop in acre",
+
+    "which_company_seeds_he_generally_buy":"Which company seeds he generally buy",
+    "use_dhaanya_seed":"USE DHAANYA SEED?",
+    "yes":"YES",
+    "no":"NO",
+
+    "which_company_hybrid_used":"Which Company/Hybrid Used",
+    "retailer_edge_code":"Retailer Edge code",
+
+    "validation_route":"Validation Route",
+    "registration_code":"Registration Code",
+    "ivr":"IVR",
+
+    "i_agree_to":"I AGREE TO",
+    "term_condition":"TERMS & CONDITIONS",
+    "of_the_scheme":"OF THE SCHEME",
+
+    "registration":"Registration"
+
+}
