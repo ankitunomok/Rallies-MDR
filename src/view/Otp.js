@@ -1,15 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 // import { t } from 'i18next';
-import React, { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import { asyncWrap } from '../asyncWrap';
-import Footer from './Footer'
-import Header from './Header'
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { asyncWrap } from "../asyncWrap";
+import Footer from "./Footer";
+import Header from "./Header";
 // import Home from './Home';
 
 export default function Otp() {
-
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
@@ -33,7 +32,7 @@ export default function Otp() {
       phoneNumber: `+91${mobile}`,
       productId: "938",
       clientId: "283",
-      OTP: otp
+      OTP: otp,
     };
 
     const config = {
@@ -58,7 +57,7 @@ export default function Otp() {
   const ReSendOtp = async () => {
     if (!mobileValidation.test(mobile)) {
       alert("Please enter valid mobile number");
-      navigate('/mobile')
+      navigate("/mobile");
       return;
     }
 
@@ -85,9 +84,7 @@ export default function Otp() {
       alert(result.data.message);
       navigate("/mobile");
     }
-  }
-
-
+  };
 
   return (
     <>
@@ -110,37 +107,66 @@ export default function Otp() {
               <div className="block register-content otp-form">
                 <div className="container">
                   <div className="tagline">
-                    <h1 className="logo-tagline"> <br /> <div className="welcomeTxt"> </div> <span className="b-text">{t('validation')}<br />
-                    </span></h1>
+                    <h1 className="logo-tagline">
+                      {" "}
+                      <br /> <div className="welcomeTxt"> </div>{" "}
+                      <span className="b-text">
+                        {t("validation")}
+                        <br />
+                      </span>
+                    </h1>
                   </div>
                   <div className="mobilePageContainer">
                     <div className="form-container">
                       <div className="form-wrap">
                         <div className="form-inner">
                           <form>
-
                             <div className="form">
                               <div className="form-group">
-                                <label className="input-label">{t('otp')}</label>
+                                <label className="input-label">
+                                  {t("otp")}
+                                </label>
                                 <div className="input-group">
-                                  <input type="tel" className="form-control" placeholder="------" value={otp} onChange={(e) => setOtp(e.target.value)} />
+                                  <input
+                                    type="tel"
+                                    className="form-control"
+                                    placeholder="------"
+                                    value={otp}
+                                    onChange={(e) => setOtp(e.target.value)}
+                                  />
                                 </div>
                               </div>
 
-                              <div className="resend-otp"> <span className="resend-otp-label"><span>{t('didnot_recieve_otp')}</span>
-                                {/* eslint-disable-next-line */}
-                                <a onClick={(e) => {
-                                  e.preventDefault();
-                                  ReSendOtp();
-                                }} href="#" className="resend-link">{t('resend_otp')}</a></span> </div>
+                              <div className="resend-otp">
+                                {" "}
+                                <span className="resend-otp-label">
+                                  <span>{t("didnot_recieve_otp")}</span>
+                                  {/* eslint-disable-next-line */}
+                                  <a
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      ReSendOtp();
+                                    }}
+                                    href="#"
+                                    className="resend-link"
+                                  >
+                                    {t("resend_otp")}
+                                  </a>
+                                </span>{" "}
+                              </div>
                             </div>
                             <div className="button-bar full-btn">
                               <div className="button-bar-outer">
                                 <div className="col">
-                                  <button onClick={(e) => {
-                                    e.preventDefault();
-                                    VerifyOtp();
-                                  }} className="btn primary-btn">{t('submit')}</button>
+                                  <button
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      VerifyOtp();
+                                    }}
+                                    className="btn primary-btn"
+                                  >
+                                    {t("submit")}
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -157,6 +183,5 @@ export default function Otp() {
         </div>
       </div>
     </>
-
-  )
+  );
 }
