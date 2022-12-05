@@ -11,15 +11,16 @@ export default function Home() {
 
   // console.log(data)
   let farmerlanguage = localStorage.getItem("farmerLanguage");
-  let mobile = localStorage.getItem("loginMob");
+  let mobile = localStorage.getItem("Verifymob");
 
   useEffect(() => {
+    i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
     if (!mobile) {
-      alert("Please login first to use this service");
-      navigate("/");
+      alert(t("dialog_check_login"));
+      navigate("/mobile");
       return;
     } else {
-      i18n.changeLanguage(farmerlanguage);
+      i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
     }
     // eslint-disable-next-line
   }, []);

@@ -11,17 +11,18 @@ export default function VerifyOtp() {
   const navigate = useNavigate();
   const [code, setCode] = useState("");
   let farmermobile = localStorage.getItem("registerMobile");
-  let mobile = localStorage.getItem("loginMob");
+  let mobile = localStorage.getItem("Verifymob");
   const { t, i18n } = useTranslation();
   let farmerlanguage = localStorage.getItem("farmerLanguage");
 
   useEffect(() => {
-    if (!farmermobile) {
-      alert("Please login first to use this service");
+    i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
+    if (!mobile && !farmermobile) {
+      alert(t("dialog_check_login"));
       navigate("/register");
       return;
     } else {
-      i18n.changeLanguage(farmerlanguage);
+      i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
     }
     // eslint-disable-next-line
   }, []);
@@ -50,33 +51,7 @@ export default function VerifyOtp() {
       return;
     } else {
       alert(result.data.message);
-      navigate("/home");
-    }
-  };
-
-  const ReSendOtp = async () => {
-    const data = {
-      phoneNumber: `+91${farmermobile}`,
-      role: "MDR",
-      resend: "1",
-      productId: "938",
-      clientId: "283",
-    };
-
-    const config = {
-      method: "post",
-      url: "/sendOTP",
-      data: data,
-    };
-
-    const [error, result] = await asyncWrap(axios(config));
-    if (!result) {
-      console.log(error);
-      return;
-    }
-    if (result.data.code === 0) {
-      alert(result.data.message);
-      navigate("/mobile");
+      navigate("/placeholder");
     }
   };
 
@@ -127,11 +102,11 @@ export default function VerifyOtp() {
                                 />
                               </div>
                             </div>
-                            <div className="resend-otp">
+                            {/* <div className="resend-otp">
                               {" "}
                               <span className="resend-otp-label">
                                 <span>{t("didnot_recieve_otp")}</span>
-                                {/* eslint-disable-next-line */}
+                                {/* eslint-disable-next-line
                                 <a
                                   href="#"
                                   onClick={(e) => {
@@ -143,7 +118,7 @@ export default function VerifyOtp() {
                                   {t("resend_otp")}
                                 </a>
                               </span>{" "}
-                            </div>
+                            </div> */}
                           </div>
                           <div className="button-bar full-btn">
                             <div className="button-bar-outer">

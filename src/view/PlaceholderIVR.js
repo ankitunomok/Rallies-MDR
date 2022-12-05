@@ -6,13 +6,23 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 export default function PlaceholderIVR() {
-  const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
 
+  let mobile = localStorage.getItem("Verifymob");
   let farmerlanguage = localStorage.getItem("farmerLanguage");
 
+  const navigate = useNavigate();
+
+  const { t, i18n } = useTranslation();
+
   useEffect(() => {
-    i18n.changeLanguage(farmerlanguage);
+    i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
+    if (!mobile) {
+      alert(t("dialog_check_login"));
+      navigate("/mobile");
+      return;
+    } else {
+      i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
+    }
     // eslint-disable-next-line
   }, []);
 

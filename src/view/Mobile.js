@@ -17,7 +17,7 @@ export default function Mobile() {
 
   const SendOtp = async () => {
     if (!mobileValidation.test(mobile)) {
-      alert("Please enter valid mobile number");
+      alert(t('dialog_valid_number'));
       return;
     }
 

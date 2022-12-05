@@ -22,7 +22,7 @@ export default function Register() {
   const [ValidationRoute, setValidationRoute] = useState("");
   const [termCondition, setTermCondition] = useState(false);
 
-  let mobile = localStorage.getItem("loginMob");
+  let mobile = localStorage.getItem("Verifymob");
   let farmerlanguage = localStorage.getItem("farmerLanguage");
   const mobileValidation = /^[0]?[6789]\d{9}$/;
 
@@ -31,77 +31,78 @@ export default function Register() {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
+    i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
     if (!mobile) {
-      alert("Please login first to use this service");
-      navigate("/");
+      alert(t("dialog_check_login"));
+      navigate("/mobile");
       return;
     } else {
-      i18n.changeLanguage(farmerlanguage);
+      i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
     }
     // eslint-disable-next-line
   }, []);
 
   const HandleRegister = async () => {
     if (farmerName.length <= 3) {
-      alert("Please input your full name");
+      alert(t('dialog_full_name'));
       return;
     }
 
     if (!mobileValidation.test(farmerMobile)) {
-      alert("Please input a valid mobile number!");
+      alert(t('dialog_valid_number'));
       return;
     }
 
     if (!farmerVillage) {
-      alert("Please input a Farmer Village!");
+      alert(t('dialog_farmer_vill'));
       return;
     }
 
     if (!pincode) {
-      alert("Please input a Pincode!");
+      alert(t('dialog_pincode'));
       return;
     }
 
     if (!PreferredRetailer) {
-      alert("Please input a PREFERRED RETAILER!");
+      alert(t('dialog_preferred_retailer'));
       return;
     }
 
     if (!landOwnedInAcre) {
-      alert("Please input a LAND OWNED IN ACRE!");
+      alert(t('dialog_land_owned_in_acre'));
       return;
     }
 
     if (!cropName) {
-      alert("Please input a Crop Name!");
+      alert(t('dialog_crop_name'));
       return;
     }
     if (!cropArea) {
-      alert("Please select AREA HE CULTIVATE THE SELECTED CROP IN ACRE!");
+      alert(t('dialog_cultivate_crop_area'));
       return;
     }
     if (!companyName) {
-      alert("Please input a Company name!");
+      alert(t('dialog_company_name'));
       return;
     }
     if (!DhaanyaSeed) {
-      alert("Please Select Dhaanya seed!");
+      alert(t('dialog_dhaanya_seed'));
       return;
     }
     if (!HybridUse) {
-      alert("Please input a COMPANY/HYBRID USED!");
+      alert(t('dialog_company_used'));
       return;
     }
     if (!EdgeCode) {
-      alert("Please select RETAILER EDGE CODE!");
+      alert(t('dialog_edge_code'));
       return;
     }
     if (!ValidationRoute) {
-      alert("Please select VALIDATION ROUTE");
+      alert(t('dialog_validate_route'));
       return;
     }
     if (!termCondition) {
-      alert("Please Check Term & Condition!");
+      alert(t('dialog_term_condition'));
       return;
     }
 
@@ -117,12 +118,12 @@ export default function Register() {
           farmerlanguage === "en"
             ? "1"
             : farmerlanguage === "hi"
-            ? "2"
-            : farmerlanguage === "mr"
-            ? "3"
-            : farmerlanguage === "gu"
-            ? "4"
-            : "1",
+              ? "2"
+              : farmerlanguage === "mr"
+                ? "3"
+                : farmerlanguage === "gu"
+                  ? "4"
+                  : "1",
         retailerName: PreferredRetailer,
         retailerId: "123",
         registeredThrough: ValidationRoute,
@@ -152,30 +153,6 @@ export default function Register() {
         navigate("/register");
       } else {
         localStorage.setItem("registerMobile", farmerMobile);
-        const data = {
-          phoneNumber: `+91${farmerMobile}`,
-          role: "MDR",
-          resend: "0",
-          productId: "938",
-          clientId: "283",
-        };
-
-        const config = {
-          method: "post",
-          url: "/sendOTP",
-          data: data,
-        };
-
-        const [error, result] = await asyncWrap(axios(config));
-        if (!result) {
-          console.log(error);
-          return;
-        }
-        if (result.data.code === 0) {
-          alert(result.data.message);
-          navigate("/register");
-          return;
-        }
         alert(result.data.message);
         navigate("/registerotp");
       }
@@ -191,12 +168,12 @@ export default function Register() {
           farmerlanguage === "en"
             ? "1"
             : farmerlanguage === "hi"
-            ? "2"
-            : farmerlanguage === "mr"
-            ? "3"
-            : farmerlanguage === "gu"
-            ? "4"
-            : "1",
+              ? "2"
+              : farmerlanguage === "mr"
+                ? "3"
+                : farmerlanguage === "gu"
+                  ? "4"
+                  : "1",
         retailerName: PreferredRetailer,
         retailerId: "123",
         registeredThrough: ValidationRoute,

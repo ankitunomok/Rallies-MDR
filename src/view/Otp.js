@@ -17,12 +17,13 @@ export default function Otp() {
   let farmerlanguage = localStorage.getItem("farmerLanguage");
 
   useEffect(() => {
+    i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
     if (!mobile) {
-      alert("Please login first to use this service");
+      alert(t('dialog_check_login'));
       navigate("/");
       return;
     } else {
-      i18n.changeLanguage(farmerlanguage);
+      i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
     }
     // eslint-disable-next-line
   }, []);
@@ -51,13 +52,15 @@ export default function Otp() {
       return;
     } else {
       localStorage.setItem("homeData", JSON.stringify(result.data.result));
+      localStorage.setItem("Verifymob", mobile);
+      localStorage.removeItem("loginMob");
       navigate('/home');
     }
   };
 
   const ReSendOtp = async () => {
     if (!mobileValidation.test(mobile)) {
-      alert("Please enter valid mobile number");
+      alert(t('dialog_valid_number'));
       navigate("/mobile");
       return;
     }
