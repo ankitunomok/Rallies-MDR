@@ -40,8 +40,8 @@ export default function Mobile() {
       console.log(error);
       return;
     }
-    if (result.data.code === 0) {
-      alert(result.data.message);
+    if (result.data.status === "FAILURE") {
+      alert(t('user_is_not_register'));
       navigate("/mobile");
     } else {
       localStorage.setItem("loginMob", mobile);

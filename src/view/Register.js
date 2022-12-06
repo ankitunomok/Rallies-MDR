@@ -89,9 +89,11 @@ export default function Register() {
       alert(t('dialog_dhaanya_seed'));
       return;
     }
-    if (!HybridUse) {
-      alert(t('dialog_company_used'));
-      return;
+    if (DhaanyaSeed === "Y") {
+      if (!HybridUse) {
+        alert(t('dialog_company_used'));
+        return;
+      }
     }
     if (!EdgeCode) {
       alert(t('dialog_edge_code'));
@@ -148,13 +150,16 @@ export default function Register() {
         console.log(error);
         return;
       }
-      if (result.data.code === 0) {
+      if (result.data.status === "FAILURE") {
+        alert(t('farmer_already_register'));
+        navigate("/register");
+      } else if (result.data.status === "SUCCESS") {
+        localStorage.setItem("registerMobile", farmerMobile);
+        alert(t('register_code_sent'));
+        navigate("/registerotp");
+      } else {
         alert(result.data.message);
         navigate("/register");
-      } else {
-        localStorage.setItem("registerMobile", farmerMobile);
-        alert(result.data.message);
-        navigate("/registerotp");
       }
     } else {
       const data = {
@@ -198,12 +203,15 @@ export default function Register() {
         console.log(error);
         return;
       }
-      if (result.data.code === 0) {
-        alert(result.data.message);
+      if (result.data.status === "FAILURE") {
+        alert(t('farmer_already_register'));
         navigate("/register");
+      } else if (result.data.status === "SUCCESS") {
+        alert(t('ivr_sent'));
+        navigate("/placeholderivr");
       } else {
         alert(result.data.message);
-        navigate("/placeholderivr");
+        navigate("/register");
       }
     }
   };

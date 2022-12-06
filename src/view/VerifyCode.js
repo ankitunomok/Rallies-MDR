@@ -47,11 +47,14 @@ export default function VerifyOtp() {
       return;
     }
     if (result.data.status === "FAILURE") {
-      alert(result.data.message);
+      alert(t('registration_otp'));
       return;
+    } else if (result.data.status === "SUCCESS") {
+      alert(t('registration_successful'));
+      navigate("/placeholder");
     } else {
       alert(result.data.message);
-      navigate("/placeholder");
+      navigate("/register")
     }
   };
 

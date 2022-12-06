@@ -47,8 +47,8 @@ export default function Otp() {
       console.log(error);
       return;
     }
-    if (result.data.code === 0) {
-      alert(result.data.message);
+    if (result.data.status === "FAILURE") {
+      alert(t('enter_correct_otp'));
       return;
     } else {
       localStorage.setItem("homeData", JSON.stringify(result.data.result));
@@ -84,9 +84,11 @@ export default function Otp() {
       console.log(error);
       return;
     }
-    if (result.data.code === 0) {
-      alert(result.data.message);
+    if (result.data.status === "FAILURE") {
+      alert(t('user_is_not_register'));
       navigate("/mobile");
+    } else {
+      alert(t('otp_sent'));
     }
   };
 
