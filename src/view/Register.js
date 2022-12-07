@@ -32,6 +32,22 @@ export default function Register() {
 
   useEffect(() => {
     i18n.changeLanguage(farmerlanguage ? farmerlanguage : "en");
+    if (localStorage.getItem("formData")) {
+      const formData = JSON.parse(localStorage.getItem("formData"));
+      setFarmerName(formData ? formData.farmerName : "")
+      setFarmerMobile(formData ? formData.farmerNumber : "")
+      setFarmerVillage(formData ? formData.village : "")
+      setPincode(formData ? formData.pincode : "")
+      setPreferredRetailer(formData ? formData.retailerName : "")
+      setLandOwnedInAcre(formData ? formData.totalLandArea : "")
+      setCropName(formData ? formData.cropGrows : "")
+      setCropArea(formData ? formData.cultivatedArea : "")
+      setCompanyName(formData ? formData.generalCompanyBuy : "")
+      setDhaanyaSeed(formData ? formData.isUsedDhanyaSeed : "")
+      setHybridUse(formData ? formData.usedSeed : "")
+      setEdgeCode(formData ? formData.edgeCode : "")
+      setValidationRoute(formData ? formData.registeredThrough : "")
+    }
     if (!mobile) {
       alert(t("dialog_check_login"));
       navigate("/mobile");
@@ -156,6 +172,7 @@ export default function Register() {
       } else if (result.data.status === "SUCCESS") {
         localStorage.setItem("registerMobile", farmerMobile);
         alert(t('register_code_sent'));
+        localStorage.removeItem("formData");
         navigate("/registerotp");
       } else {
         alert(result.data.message);
@@ -208,6 +225,7 @@ export default function Register() {
         navigate("/register");
       } else if (result.data.status === "SUCCESS") {
         alert(t('ivr_sent'));
+        localStorage.removeItem("formData");
         navigate("/placeholderivr");
       } else {
         alert(result.data.message);
@@ -215,6 +233,25 @@ export default function Register() {
       }
     }
   };
+
+  const handleTandCListener = () => {
+    const dataJson = {
+      farmerName: farmerName,
+      farmerNumber: farmerMobile,
+      village: farmerVillage,
+      pincode: pincode,
+      retailerName: PreferredRetailer,
+      totalLandArea: landOwnedInAcre,
+      cropGrows: cropName,
+      cultivatedArea: cropArea,
+      generalCompanyBuy: companyName,
+      isUsedDhanyaSeed: DhaanyaSeed,
+      usedSeed: HybridUse,
+      edgeCode: EdgeCode,
+      registeredThrough: ValidationRoute,
+    }
+    localStorage.setItem("formData", JSON.stringify(dataJson));
+  }
 
   return (
     <div>
@@ -503,6 +540,7 @@ export default function Register() {
                             <a
                               onClick={(e) => {
                                 e.preventDefault();
+                                handleTandCListener();
                                 navigate("/termcondition");
                               }}
                               href="terms-conditions.html"
