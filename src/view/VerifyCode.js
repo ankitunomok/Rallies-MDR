@@ -30,7 +30,7 @@ export default function VerifyOtp() {
   const VerifyOtp = async () => {
     const data = {
       phoneNumber: `+91${mobile}`,
-      productId: "938",
+      productId: "999",
       registrationCode: code,
       farmerMobileNumber: `+91${farmermobile}`,
     };

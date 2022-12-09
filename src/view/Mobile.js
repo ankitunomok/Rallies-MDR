@@ -25,8 +25,8 @@ export default function Mobile() {
       phoneNumber: `+91${mobile}`,
       role: "MDR",
       resend: "0",
-      productId: "938",
-      clientId: "283",
+      productId: "999",
+      clientId: "289",
     };
 
     const config = {

@@ -31,8 +31,8 @@ export default function Otp() {
   const VerifyOtp = async () => {
     const data = {
       phoneNumber: `+91${mobile}`,
-      productId: "938",
-      clientId: "283",
+      productId: "999",
+      clientId: "289",
       OTP: otp,
     };
 
@@ -69,8 +69,8 @@ export default function Otp() {
       phoneNumber: `+91${mobile}`,
       role: "MDR",
       resend: "1",
-      productId: "938",
-      clientId: "283",
+      productId: "999",
+      clientId: "289",
     };
 
     const config = {

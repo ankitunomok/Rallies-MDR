@@ -127,8 +127,8 @@ export default function Register() {
     if (ValidationRoute === "1") {
       const data = {
         phoneNumber: `+91${mobile}`,
-        productId: "938",
-        clientId: "283",
+        productId: "999",
+        clientId: "289",
         farmerName: farmerName,
         farmerNumber: `+91${farmerMobile}`,
         village: farmerVillage,
@@ -181,8 +181,8 @@ export default function Register() {
     } else {
       const data = {
         phoneNumber: `+91${mobile}`,
-        productId: "938",
-        clientId: "283",
+        productId: "999",
+        clientId: "289",
         farmerName: farmerName,
         farmerNumber: `+91${farmerMobile}`,
         village: farmerVillage,
