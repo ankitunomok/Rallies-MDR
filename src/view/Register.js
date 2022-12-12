@@ -21,7 +21,7 @@ export default function Register() {
   const [EdgeCode, setEdgeCode] = useState("");
   const [ValidationRoute, setValidationRoute] = useState("");
   const [termCondition, setTermCondition] = useState(false);
-  const [seedPackage, setSeedPackage] = useState("");
+  const [seedPackage, setSeedPackage] = useState("0");
 
   let mobile = localStorage.getItem("Verifymob");
   let farmerlanguage = localStorage.getItem("farmerLanguage");
@@ -48,7 +48,7 @@ export default function Register() {
       setHybridUse(formData ? formData.usedSeed : "")
       setEdgeCode(formData ? formData.edgeCode : "")
       setValidationRoute(formData ? formData.registeredThrough : "")
-      setSeedPackage(formData ? formData.seedPackage : "")
+      setSeedPackage(formData ? formData.seedPackage : "0")
     }
     if (!mobile) {
       alert(t("dialog_check_login"));
@@ -155,7 +155,7 @@ export default function Register() {
         usedSeed: HybridUse,
         isUsedDhanyaSeed: DhaanyaSeed,
         edgeCode: EdgeCode,
-        seedPackets: seedPackage
+        seedPackets: seedPackage ? seedPackage : "0"
       };
 
       const config = {
@@ -210,7 +210,7 @@ export default function Register() {
         usedSeed: HybridUse,
         isUsedDhanyaSeed: DhaanyaSeed,
         edgeCode: EdgeCode,
-        seedPackets: seedPackage
+        seedPackets: seedPackage ? seedPackage : "0"
       };
 
       const config = {
