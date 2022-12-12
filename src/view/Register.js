@@ -21,6 +21,7 @@ export default function Register() {
   const [EdgeCode, setEdgeCode] = useState("");
   const [ValidationRoute, setValidationRoute] = useState("");
   const [termCondition, setTermCondition] = useState(false);
+  const [seedPackage, setSeedPackage] = useState("");
 
   let mobile = localStorage.getItem("Verifymob");
   let farmerlanguage = localStorage.getItem("farmerLanguage");
@@ -47,6 +48,7 @@ export default function Register() {
       setHybridUse(formData ? formData.usedSeed : "")
       setEdgeCode(formData ? formData.edgeCode : "")
       setValidationRoute(formData ? formData.registeredThrough : "")
+      setSeedPackage(formData ? formData.seedPackage : "")
     }
     if (!mobile) {
       alert(t("dialog_check_login"));
@@ -153,6 +155,7 @@ export default function Register() {
         usedSeed: HybridUse,
         isUsedDhanyaSeed: DhaanyaSeed,
         edgeCode: EdgeCode,
+        seedPackets: seedPackage
       };
 
       const config = {
@@ -207,6 +210,7 @@ export default function Register() {
         usedSeed: HybridUse,
         isUsedDhanyaSeed: DhaanyaSeed,
         edgeCode: EdgeCode,
+        seedPackets: seedPackage
       };
 
       const config = {
@@ -249,6 +253,7 @@ export default function Register() {
       usedSeed: HybridUse,
       edgeCode: EdgeCode,
       registeredThrough: ValidationRoute,
+      seedPackage: seedPackage
     }
     localStorage.setItem("formData", JSON.stringify(dataJson));
   }
@@ -483,6 +488,21 @@ export default function Register() {
                               placeholder=""
                               value={HybridUse}
                               onChange={(e) => setHybridUse(e.target.value)}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="form-group">
+                          <label className="input-label">
+                            {t('seed_package')}
+                          </label>
+                          <div className="input-group">
+                            <input
+                              type="number"
+                              className="form-control"
+                              placeholder=""
+                              value={seedPackage}
+                              onChange={(e) => setSeedPackage(e.target.value)}
                             />
                           </div>
                         </div>

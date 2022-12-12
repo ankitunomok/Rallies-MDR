@@ -110,5 +110,6 @@
     "farmer_already_register": "FARMER is already registered",
     "ivr_sent": "IVR request has been sent to farmers number",
     "registration_successful": "Farmer Registration SuccessFully Completed",
-    "registration_otp": "Please Enter Correct Registration Code"
+    "registration_otp": "Please Enter Correct Registration Code",
+    "seed_package": "I confirm that I will buy these many packets of Dhaanya hybrid seeds for the crop."
 }
