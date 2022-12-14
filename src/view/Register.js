@@ -22,6 +22,7 @@ export default function Register() {
   const [ValidationRoute, setValidationRoute] = useState("");
   const [termCondition, setTermCondition] = useState(false);
   const [seedPackage, setSeedPackage] = useState("0");
+  const [btnClick, setBtnClick] = useState(false);
 
   let mobile = localStorage.getItem("Verifymob");
   let farmerlanguage = localStorage.getItem("farmerLanguage");
@@ -63,66 +64,86 @@ export default function Register() {
   const HandleRegister = async () => {
     if (farmerName.length <= 3) {
       alert(t('dialog_full_name'));
+      setBtnClick(false);
       return;
     }
 
     if (!mobileValidation.test(farmerMobile)) {
       alert(t('dialog_valid_number'));
+      setBtnClick(false);
       return;
     }
 
     if (!farmerVillage) {
       alert(t('dialog_farmer_vill'));
+      setBtnClick(false);
       return;
     }
 
     if (!pincode) {
       alert(t('dialog_pincode'));
+      setBtnClick(false);
+      return;
+    }
+
+    if (pincode.length !== 6) {
+      alert(t('dialog_pincode_digit'));
+      setBtnClick(false);
       return;
     }
 
     if (!PreferredRetailer) {
       alert(t('dialog_preferred_retailer'));
+      setBtnClick(false);
       return;
     }
 
     if (!landOwnedInAcre) {
       alert(t('dialog_land_owned_in_acre'));
+      setBtnClick(false);
       return;
     }
 
     if (!cropName) {
       alert(t('dialog_crop_name'));
+      setBtnClick(false);
       return;
     }
     if (!cropArea) {
       alert(t('dialog_cultivate_crop_area'));
+      setBtnClick(false);
       return;
     }
     if (!companyName) {
       alert(t('dialog_company_name'));
+      setBtnClick(false);
       return;
     }
     if (!DhaanyaSeed) {
       alert(t('dialog_dhaanya_seed'));
+      setBtnClick(false);
       return;
     }
     if (DhaanyaSeed === "Y") {
       if (!HybridUse) {
         alert(t('dialog_company_used'));
+        setBtnClick(false);
         return;
       }
     }
     if (!EdgeCode) {
       alert(t('dialog_edge_code'));
+      setBtnClick(false);
       return;
     }
     if (!ValidationRoute) {
       alert(t('dialog_validate_route'));
+      setBtnClick(false);
       return;
     }
     if (!termCondition) {
       alert(t('dialog_term_condition'));
+      setBtnClick(false);
       return;
     }
 
@@ -171,14 +192,17 @@ export default function Register() {
       }
       if (result.data.status === "FAILURE") {
         alert(t('farmer_already_register'));
+        setBtnClick(false);
         navigate("/register");
       } else if (result.data.status === "SUCCESS") {
         localStorage.setItem("registerMobile", farmerMobile);
         alert(t('register_code_sent'));
         localStorage.removeItem("formData");
+        setBtnClick(false);
         navigate("/registerotp");
       } else {
         alert(result.data.message);
+        setBtnClick(false);
         navigate("/register");
       }
     } else {
@@ -226,13 +250,16 @@ export default function Register() {
       }
       if (result.data.status === "FAILURE") {
         alert(t('farmer_already_register'));
+        setBtnClick(false);
         navigate("/register");
       } else if (result.data.status === "SUCCESS") {
         alert(t('ivr_sent'));
         localStorage.removeItem("formData");
+        setBtnClick(false);
         navigate("/placeholderivr");
       } else {
         alert(result.data.message);
+        setBtnClick(false);
         navigate("/register");
       }
     }
@@ -333,7 +360,7 @@ export default function Register() {
                           <label className="input-label">{t("pincode")}</label>
                           <div className="input-group">
                             <input
-                              type="text"
+                              type="number"
                               className="form-control"
                               placeholder=""
                               value={pincode}
@@ -575,8 +602,10 @@ export default function Register() {
                         <div className="button-bar-outer">
                           <div className="col">
                             <button
+                              disabled={btnClick}
                               onClick={(e) => {
                                 e.preventDefault();
+                                setBtnClick(true);
                                 HandleRegister();
                               }}
                               className="btn primary-btn"
